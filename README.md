@@ -1,4 +1,4 @@
-# cmdMail-Python
+# cmdMail
 An email reading app designed for a Linux headless server. Can respond to email requests and start threaded commands.
 
 ### Dependencies / Installation
@@ -7,4 +7,4 @@ cmdMail uses external program "streamripper" and needs to point to bash scripts 
 You will also need a valid Gmail account for the Pi to listen to.
 
 This program is meant as a skeleton or sample program to get started with automated tasking and using emails to control a computer.
-You can add many other features by extending this program. 
+You can add many other features by extending this program.

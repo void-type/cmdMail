@@ -13,8 +13,6 @@ import traceback
 from config import *
 
 # Write a new line to the log file
-
-
 def log(entry, log_file=LOG_FILE):
     # Create a new file if log doesn't exist, otherwise append a log entry
     with open(log_file, "a") as f:
@@ -47,8 +45,11 @@ def send_ip_email():
 # Send an email
 def send_email(subject, message=" "):
     # Construct the email in single-string format
-    eml = "\r\n".join([f"From: {FROM_NAME}", f"To: {SEND_TO}",
-                       f"Subject: {SUBJECT_PREFIX}: {subject}", "", message])
+    eml = "\r\n".join(["From: " + FROM_NAME,
+                       "To: " + SEND_TO,
+                       "Subject: " + SUBJECT_PREFIX + ": " + subject,
+                       "",
+                       message])
 
     # Keep trying until the email is successfully sent
     sent = False
@@ -66,7 +67,7 @@ def send_email(subject, message=" "):
         except smtplib.SMTPException as e:
             # In case of errors, wait a minute and then resend
             # Subject can help identify what function tried to send the email
-            log("Send Email Error: " + subject + ", " + str(e.strerror) + ".")
+            log("Send Email Error: " + subject + ", " + str(e.message) + ".")
             time.sleep(60)
     # End Send Loop
 
@@ -148,6 +149,7 @@ def main():
         while True:
             read_emails()
 
+            # Every (home_ip_delay * loop_delay) seconds, check the home IP and log any changes.
             if(loop_count % home_ip_delay == 0):
                 new_home_ip = get_home_ip()
                 if(new_home_ip != home_ip):
