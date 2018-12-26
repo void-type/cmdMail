@@ -1,13 +1,19 @@
 # Constants and Settings
-# A name for the from email account
-FROM_NAME = "Notification Emailer"
-# A name for the server, this preceeds the subject in every email
-SUBJECT_PREFIX = "Message from My Pi:"
-# user@gmail.com
-USER_NAME = "mynotificationemailer@gmail.com"
-# account password
-PASSWORD = "password123"
-# reciever email
-SEND_TO = "your.name@gmail.com"
-# path to log file
-LOG_FILE = "./cmdMail.log"
+
+# The email address to send and read from.
+email_user_name = "myPi@gmail.com"
+
+# Email account password.
+email_password = "password123"
+
+# A prefix for the subject.
+email_subject_prefix = "A message from my Pi"
+
+# A name for the "from" email account
+email_from = "Notification Emailer"
+
+# Where to send notification emails.
+email_send_to = "yourName@gmail.com"
+
+# The log file path
+log_file_path = "./cmdMail.log"
