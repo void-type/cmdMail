@@ -33,6 +33,7 @@ def on_startup():
     msg += "Home IP Address: " + ip
     emailer.send(sub, msg)
 
+
 def read_commands():
     messages = str(emailer.read()).lower()
 
@@ -58,7 +59,7 @@ def main():
 
     # Delays measured in seconds.
     loop_delay = 10
-    regular_interval_delay = 30 * 60
+    regular_interval_delay = 15 * 60
     loop_count = 0
 
     # Continuously monitor email for new commands, pausing every 30 seconds

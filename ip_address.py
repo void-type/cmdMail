@@ -15,6 +15,7 @@ def send_ip_email():
 
 # Return the current home IP and log any changes.
 def check_against_current():
+    global current_home_ip
     new_current_home_ip = get()
 
     if(new_current_home_ip != current_home_ip):
