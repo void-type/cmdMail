@@ -19,10 +19,12 @@ def check_against_current():
     new_current_home_ip = get()
 
     if(new_current_home_ip != current_home_ip):
+        utilities.log("IP address changed from " +
+                      current_home_ip + " to " + new_current_home_ip)
+        utilities.log(new_current_home_ip, "ip.log")
         current_home_ip = new_current_home_ip
-        utilities.log(current_home_ip, "ip.log")
 
-    return current_home_ip
+    return new_current_home_ip
 
 
 # Returns a string with the home global IP
