@@ -15,15 +15,18 @@ import utilities
 
 
 def on_startup():
+    utilities.log("Starting up.")
+
     # Ensure the user has setup the script
     if config.email_user_name == "" or config.email_send_to == "" or config.email_password == "":
         utilities.log("Email variables are not setup. Exiting.")
         exit(1)
 
+    utilities.log("Waiting for startup delay.")
+
     # Start by sending a boot up email.
     # 2 minute delay to allow drivers and internet connection to get going
     time.sleep(120)
-    utilities.log("Booting up.")
 
     ip = ip_address.check_against_current()
 
@@ -32,6 +35,8 @@ def on_startup():
     msg = "I have successfully booted up.\n"
     msg += "Home IP Address: " + ip
     emailer.send(sub, msg)
+
+    utilities.log("Starting normal loop.")
 
 
 def read_commands():
