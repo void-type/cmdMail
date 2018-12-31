@@ -9,8 +9,7 @@ retry_delay = 30
 # Send an email
 def send(subject, message=" "):
     # Construct the email in single-string format
-    eml = "\r\n".join(["From: " + config.email_from,
-                       "To: " + config.email_send_to,
+    eml = "\r\n".join(["To: " + config.email_send_to,
                        "Subject: " + config.email_subject_prefix + ": " + subject,
                        "",
                        message])
@@ -23,7 +22,7 @@ def send(subject, message=" "):
             server.ehlo()
             server.starttls()
             server.login(config.email_user_name, config.email_password)
-            server.sendmail(config.email_from, [config.email_send_to], eml)
+            server.sendmail(config.email_user_name, [config.email_send_to], eml)
             server.quit()
             sent = True
         except smtplib.SMTPException as e:

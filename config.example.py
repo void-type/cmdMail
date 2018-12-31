@@ -9,9 +9,6 @@ email_password = "password123"
 # A prefix for the subject.
 email_subject_prefix = "A message from my Pi"
 
-# A name for the "from" email account
-email_from = "Notification Emailer"
-
 # Where to send notification emails.
 email_send_to = "yourName@gmail.com"
 
