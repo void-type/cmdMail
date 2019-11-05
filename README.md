@@ -1,7 +1,15 @@
-# cmdMail
+# cmdMail - Deprecated
+
 An app that responds to commands via email and performs tasks autonomously.
 
-### Dependencies / Installation
+## Deprecated
+
+I haven't updated this repo in nearly a year and no longer use cmdMail myself.
+
+[PowerM](https://github.com/JimScope/PowerM) might be a more active alternative.
+
+## Dependencies / Installation
+
 This script is written mainly for Raspian on the Raspberry Pi which comes with Python 3.5.3.
 You will also need an email account without 2FA for the script to listen to.
 
